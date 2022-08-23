@@ -46,7 +46,7 @@ public class Cache extends RAM {
 
     public void pushCache() {
         for(int i = 0; i < cache.length; i++) {
-            System.out.println("Writing " + cache[i] + " to " + (startAddress+i));
+            //System.out.println("Writing " + cache[i] + " to " + (startAddress+i));
             ram.write(startAddress+i, cache[i]);
         }
     }
@@ -64,7 +64,7 @@ public class Cache extends RAM {
             this.startAddress = startAddress;
         }
         for(int i = 0; i < cache.length; i++) {
-            System.out.println("Pulling cache from address " + (startAddress+i));
+            //System.out.println("Pulling cache from address " + (startAddress+i));
             cache[i] = ram.read(startAddress+i);
         }
     }
