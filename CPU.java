@@ -15,7 +15,7 @@ public class CPU {
     public void execute(int address) {
 
         pc = address;
-        System.out.println("Executing program at address " + pc);
+        io.print("Executing program at address " + pc+"\n");
 
         while(ram.read(pc) != -1){
 
@@ -25,9 +25,10 @@ public class CPU {
         ++pc;
 
         int counter = 0;
-        for (int i = a; i <= (b-1); ++i) {
-            System.out.println(i);
+        for (int i = a; i <= (b); ++i) {
+            
             counter += 1;
+            //System.out.println("Pos "+ i +" Counter: " + counter);
             ram.write(i, counter);
             io.print(i + " -> " + counter + "\n");
             

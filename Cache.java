@@ -30,8 +30,9 @@ public class Cache extends RAM {
     }
 
     @Override
-    public void write(int address, int value) {
-        if(address < (startAddress+cache.length-1) && address >= startAddress) {
+    public int write(int address, int value) {
+        
+        if(address < (startAddress+cache.length) && address >= startAddress) {
             cache[address-startAddress] = value;
             modified = true;
         }
@@ -39,20 +40,27 @@ public class Cache extends RAM {
             pullCache(address);
             write(address, value);
         }
+        return 1;
     }
+
 
     public void pushCache() {
         for(int i = 0; i < cache.length; i++) {
+            //System.out.println("Writing " + cache[i] + " to " + (startAddress+i));
             ram.write(startAddress+i, cache[i]);
         }
     }
+    
 
     public void pullCache(int startAddress) {
         if(modified){
             pushCache();
         }
+        //last memory address
+        
         this.startAddress = startAddress;
         for(int i = 0; i < cache.length; i++) {
+            //System.out.println("Pulling cache from address " + (startAddress+i));
             cache[i] = ram.read(startAddress+i);
         }
     }
