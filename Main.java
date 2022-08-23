@@ -7,8 +7,8 @@ public class Main {
         IO io  = new IO(System.in, System.out);
         RAM ram = new RAM(128);
 
-        ram.write(1,120);
-        ram.write(2,128);
+        ram.write(1,119);
+        ram.write(2,127);
         
         Cache cache = new Cache(8, ram);
         CPU cpu = new CPU(io, cache);

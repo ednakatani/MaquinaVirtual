@@ -17,7 +17,7 @@ public class RAM {
             return 1;
         }
         catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("Position " + position + " for value "+value+" is out of bounds");
+            System.out.println("Position " + position + " for value"+value+" is out of bounds");
             System.out.println("Error: Address out of bounds");
             System.exit(1);
             return -1;
